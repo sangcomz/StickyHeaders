@@ -19,14 +19,14 @@ public interface StickyHeaderListener {
      * @param headerView      The view that is currently attached as the sticky header
      * @param adapterPosition The position in the adapter data set that this view represents
      */
-    void headerAttached(View headerView, int adapterPosition);
+    void headerAttached(View headerView, int adapterPosition, boolean isRebound);
 
     /**
      * Called when a Sticky Header has been detached or is about to be re-bound.
      * <p>
      * For performance reasons, if the new Sticky Header that will be replacing the current one is
      * of the same view type, the view is reused. In that case, this call will be immediately followed
-     * by a call to {@link StickyHeaderListener#headerAttached(View, int)} with the same view instance,
+     * by a call to {@link StickyHeaderListener#headerAttached(View, int, boolean)} with the same view instance,
      * but after the view is re-bound with the new adapter data.
      * <p>
      * <b>Important</b><br/>
@@ -42,5 +42,5 @@ public interface StickyHeaderListener {
      * @param headerView      The view that will be removed from the sticky header position, or soon to be re-bound
      * @param adapterPosition The position in the adapter data set that the header view was created from when originally bound
      */
-    void headerDetached(View headerView, int adapterPosition);
+    void headerDetached(View headerView, int adapterPosition, boolean isRebound);
 }

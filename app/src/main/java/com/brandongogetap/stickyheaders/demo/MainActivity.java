@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         layoutManager.setStickyHeaderListener(new StickyHeaderListener() {
             @Override
-            public void headerAttached(View headerView, int adapterPosition) {
-                Log.d("Listener", "Attached with position: " + adapterPosition);
+            public void headerAttached(View headerView, int adapterPosition, boolean isRebound) {
+                Log.d("Listener", "Attached with position: " + adapterPosition + " isRebound: " + isRebound);
             }
 
             @Override
-            public void headerDetached(View headerView, int adapterPosition) {
-                Log.d("Listener", "Detached with position: " + adapterPosition);
+            public void headerDetached(View headerView, int adapterPosition, boolean isRebound) {
+                Log.d("Listener", "Detached with position: " + adapterPosition + " isRebound: " + isRebound);
             }
         });
         findViewById(R.id.visibility_button).setOnClickListener(v ->
